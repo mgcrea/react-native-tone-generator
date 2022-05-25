@@ -1,18 +1,58 @@
-import * as React from 'react';
-
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-tone-generator';
+import React, { useEffect } from 'react';
+import { StyleSheet, View, Text, Button } from 'react-native';
+import {
+  getStreamMaxVolume,
+  setStreamVolume,
+  startTone,
+  // TONE_CDMA_ALERT_CALL_GUARD,
+  // TONE_CDMA_ONE_MIN_BEEP,
+} from 'react-native-tone-generator';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
+  const [tone, setToneType] = React.useState<number>(1);
+  const [volume, setVolume] = React.useState<number>(0);
 
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
+  useEffect(() => {
+    getStreamMaxVolume().then((maxVolume) => {
+      console.warn(maxVolume);
+    });
   }, []);
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Text>Tone: {tone}</Text>
+      <Text>Volume: {volume}</Text>
+      <Button
+        onPress={() => {
+          startTone(tone, 400);
+        }}
+        title="Play Tone"
+        color="#841584"
+      />
+      <Button
+        onPress={() => {
+          setToneType((value) => value - 1);
+          startTone(tone - 1, 400);
+        }}
+        title="Previous Tone"
+        color="#841584"
+      />
+      <Button
+        onPress={() => {
+          setToneType((value) => value + 1);
+          startTone(tone + 1, 400);
+        }}
+        title="Next Tone"
+        color="#841584"
+      />
+      <Button
+        onPress={() => {
+          setVolume((value) => value + 1);
+          setStreamVolume(volume);
+        }}
+        title="Set Volume"
+        color="#841584"
+      />
     </View>
   );
 }

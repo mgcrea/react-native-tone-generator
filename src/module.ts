@@ -6,7 +6,7 @@ const LINKING_ERROR =
   '- You rebuilt the app after installing the package\n' +
   '- You are not using Expo managed workflow\n';
 
-const ToneGenerator = NativeModules.ToneGenerator
+export const ToneGenerator = NativeModules.ToneGenerator
   ? NativeModules.ToneGenerator
   : new Proxy(
       {},
@@ -16,7 +16,3 @@ const ToneGenerator = NativeModules.ToneGenerator
         },
       }
     );
-
-export function multiply(a: number, b: number): Promise<number> {
-  return ToneGenerator.multiply(a, b);
-}
