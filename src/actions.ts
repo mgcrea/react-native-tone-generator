@@ -1,4 +1,14 @@
+import { STREAM_MUSIC } from './config';
 import { ToneGenerator } from './module';
+
+// Tone
+
+export const configureTone = async (
+  streamType: number,
+  volume: number = 100
+): Promise<null> => {
+  return ToneGenerator.configureTone(streamType, volume);
+};
 
 export const startTone = async (
   toneType: number,
@@ -11,13 +21,27 @@ export const stopTone = async (): Promise<null> => {
   return ToneGenerator.stopTone();
 };
 
-export const setStreamVolume = async (
+// Volume
+
+export const getStreamVolume = async (
   index: number,
-  flags: number = 0
+  streamType = STREAM_MUSIC
 ): Promise<null> => {
-  return ToneGenerator.setStreamVolume(index, flags);
+  return ToneGenerator.getStreamVolume(streamType, index);
 };
 
-export const getStreamMaxVolume = async (): Promise<null> => {
-  return ToneGenerator.getStreamMaxVolume();
+export const setStreamVolume = async (
+  index: number,
+  streamType = STREAM_MUSIC,
+  flags = 0
+): Promise<null> => {
+  return ToneGenerator.setStreamVolume(streamType, index, flags);
+};
+
+export const getStreamMinVolume = async (): Promise<number | null> => {
+  return (ToneGenerator.getStreamMinVolume() as number) || null;
+};
+
+export const getStreamMaxVolume = async (): Promise<number> => {
+  return ToneGenerator.getStreamMaxVolume() as number;
 };

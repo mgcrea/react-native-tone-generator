@@ -698,3 +698,26 @@ export const TONE_CDMA_SIGNAL_OFF = 98;
 export const MAX_VOLUME = 100;
 /** Minimum volume setting, for use with {@link #ToneGenerator(int,int)} */
 export const MIN_VOLUME = 0;
+
+/** Used to identify the volume of audio streams for phone calls */
+export const STREAM_VOICE_CALL = 0;
+/** Used to identify the volume of audio streams for system sounds */
+export const STREAM_SYSTEM = 1;
+/** Used to identify the volume of audio streams for the phone ring */
+export const STREAM_RING = 2;
+/** Used to identify the volume of audio streams for music playback */
+export const STREAM_MUSIC = 3;
+/** Used to identify the volume of audio streams for alarms */
+export const STREAM_ALARM = 4;
+/** Used to identify the volume of audio streams for notifications */
+export const STREAM_NOTIFICATION = 5;
+/** Used to identify the volume of audio streams for phone calls when connected to bluetooth */
+export const STREAM_BLUETOOTH_SCO = 6;
+/** Used to identify the volume of audio streams for enforced system sounds in certain countries (e.g camera in Japan) */
+export const STREAM_SYSTEM_ENFORCED = 7;
+/** Used to identify the volume of audio streams for DTMF Tones */
+export const STREAM_DTMF = 8;
+/** Used to identify the volume of audio streams exclusively transmitted through the speaker (TTS) of the device */
+export const STREAM_TTS = 9;
+/** Used to identify the volume of audio streams for accessibility prompts */
+export const STREAM_ACCESSIBILITY = 10;
