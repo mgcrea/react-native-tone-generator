@@ -1,6 +1,9 @@
 import { STREAM_MUSIC } from './config';
 import { ToneGenerator } from './module';
 
+export const waitFor = async (ms: number) =>
+  new Promise((resolve) => setTimeout(resolve, ms));
+
 // Tone
 
 export const configureTone = async (
@@ -15,6 +18,17 @@ export const startTone = async (
   durationMs: number = -1
 ): Promise<null> => {
   return ToneGenerator.startTone(toneType, durationMs);
+};
+
+export const startToneAndWait = async (
+  toneType: number,
+  durationMs: number = -1
+): Promise<null> => {
+  const result = ToneGenerator.startTone(toneType, durationMs);
+  if (durationMs > 0) {
+    await waitFor(durationMs);
+  }
+  return result;
 };
 
 export const stopTone = async (): Promise<null> => {
