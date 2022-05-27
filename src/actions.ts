@@ -25,7 +25,7 @@ export const stopTone = async (): Promise<null> => {
 
 export const getStreamVolume = async (
   streamType = STREAM_MUSIC
-): Promise<null> => {
+): Promise<number> => {
   return ToneGenerator.getStreamVolume(streamType);
 };
 
