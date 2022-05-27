@@ -1,6 +1,6 @@
 {
   "name": "@mgcrea/react-native-tone-generator",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "ToneGenerator",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
