@@ -37,10 +37,14 @@ export const setStreamVolume = async (
   return ToneGenerator.setStreamVolume(streamType, index, flags);
 };
 
-export const getStreamMinVolume = async (): Promise<number | null> => {
-  return (ToneGenerator.getStreamMinVolume() as number) || null;
+export const getStreamMinVolume = async (
+  streamType = STREAM_MUSIC
+): Promise<number | null> => {
+  return (ToneGenerator.getStreamMinVolume(streamType) as number) || null;
 };
 
-export const getStreamMaxVolume = async (): Promise<number> => {
-  return ToneGenerator.getStreamMaxVolume() as number;
+export const getStreamMaxVolume = async (
+  streamType = STREAM_MUSIC
+): Promise<number> => {
+  return ToneGenerator.getStreamMaxVolume(streamType) as number;
 };
