@@ -1,28 +1,21 @@
 # react-native-tone-generator
 
-React Native plugin to play generated tones using [ToneGenerator](https://developer.android.com/reference/android/media/ToneGenerator)
+foo
 
 ## Installation
 
 ```sh
-npm install @mgcrea/react-native-tone-generator
+npm install react-native-tone-generator
 ```
 
 ## Usage
 
-```ts
-import {
-  TONE_CDMA_ALERT_CALL_GUARD,
-  startTone,
-  stopTone,
-  getStreamMaxVolume,
-  setStreamVolume,
-} from '@mgcrea/react-native-tone-generator';
+```js
+import { multiply } from 'react-native-tone-generator';
 
-startTone(TONE_CDMA_ALERT_CALL_GUARD, 125);
-stopTone();
-const maxVolume = await getStreamMaxVolume();
-setStreamVolume(maxVolume);
+// ...
+
+const result = await multiply(3, 7);
 ```
 
 ## Contributing
@@ -32,3 +25,7 @@ See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the 
 ## License
 
 MIT
+
+---
+
+Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
