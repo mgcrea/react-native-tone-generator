@@ -6,7 +6,7 @@ import {
   startTone,
   // TONE_CDMA_ALERT_CALL_GUARD,
   // TONE_CDMA_ONE_MIN_BEEP,
-} from 'react-native-tone-generator';
+} from '@mgcrea/react-native-tone-generator';
 
 export default function App() {
   const [tone, setToneType] = React.useState<number>(1);

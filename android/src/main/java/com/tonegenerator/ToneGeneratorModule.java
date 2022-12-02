@@ -1,6 +1,10 @@
 package com.tonegenerator;
 
 import androidx.annotation.NonNull;
+import android.media.AudioManager;
+import android.media.ToneGenerator;
+import android.content.Context;
+import android.os.Build;
 
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -11,9 +15,12 @@ import com.facebook.react.module.annotations.ReactModule;
 @ReactModule(name = ToneGeneratorModule.NAME)
 public class ToneGeneratorModule extends ReactContextBaseJavaModule {
   public static final String NAME = "ToneGenerator";
+  private final ReactApplicationContext reactContext;
+  private ToneGenerator toneGenerator = new ToneGenerator(AudioManager.STREAM_MUSIC, 100);
 
   public ToneGeneratorModule(ReactApplicationContext reactContext) {
     super(reactContext);
+    this.reactContext = reactContext;
   }
 
   @Override
